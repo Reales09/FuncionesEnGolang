@@ -9,8 +9,8 @@ func main() {
 
 	// Nos devuelve una variable de tipo file y un error
 
-	if file, error := os.Open("C:/Users/DESARROLLADOR4/go/src/curso_golang_udemy/funciones/defer-panic-recover/hola.txt"); error != nil {
-		fmt.Println("No fue posible obtener el archivo!!")
+	if file, error := os.Open("C:/Users/DESARROLLADOR4/go/src/curso_golang_udemy/funciones/defer-panic-recover/hol.txt"); error != nil {
+		panic("No fue posible obtener el archivo!!")
 	} else {
 		defer func() {
 			fmt.Println("Cerrando el archivo!!")
