@@ -7,6 +7,13 @@ import (
 
 func main() {
 
+	//funcion
+	defer func() {
+		if error := recover(); error != nil {
+			fmt.Println("Al parecer el programa no finalizo de forma correcta!!")
+		}
+	}()
+
 	// Nos devuelve una variable de tipo file y un error
 
 	if file, error := os.Open("C:/Users/DESARROLLADOR4/go/src/curso_golang_udemy/funciones/defer-panic-recover/hol.txt"); error != nil {
