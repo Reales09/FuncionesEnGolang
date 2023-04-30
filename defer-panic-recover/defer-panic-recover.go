@@ -7,11 +7,15 @@ import (
 
 func main() {
 
-	file, error := os.Open("C:/Users/DESARROLLADOR4/go/src/curso_golang_udemy/funciones/defer-panic-recover/hola.txt")
+	// Nos devuelve una variable de tipo file y un error
 
-	if error != nil {
+	if file, error := os.Open("C:/Users/DESARROLLADOR4/go/src/curso_golang_udemy/funciones/defer-panic-recover/hola.txt"); error != nil {
 		fmt.Println("No fue posible obtener el archivo!!")
 	} else {
+		defer func() {
+			fmt.Println("Cerrando el archivo!!")
+			file.Close()
+		}()
 		contenido := make([]byte, 254)
 		long, _ := file.Read(contenido)
 
@@ -19,7 +23,5 @@ func main() {
 		fmt.Println(contenidoArchivo)
 
 	}
-
-	file.Close()
 
 }
